@@ -1,83 +1,81 @@
 // Styling for the navbar
 #mainNav {
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  background: $theme-primary;
-  a:focus {
-    outline: none;
-  }
+  border-color: fade-out($gray-darker, .95);
+  background-color: white;
+  @include sans-serif-font;
+  @include transition-all;
   .navbar-brand {
-    font-size: 1.1rem;
-    color: white;
-    &.active,
-    &:active,
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $theme-primary;
+    @include sans-serif-font;
     &:focus,
     &:hover {
-      color: white;
+      color: darken($theme-primary, .1);
     }
   }
+  .navbar-toggle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $gray-darker;
+  }
   .navbar-nav {
-    letter-spacing: 1px;
-    li.nav-item {
-      a.nav-link {
-        color: white;
+    > li.nav-item {
+       > a.nav-link:focus,
+      > a.nav-link {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $gray-darker;
         &:hover {
-          color: $theme-success;
-          outline: none;
+          color: $theme-primary;
         }
-        &:active,
-        &:focus {
-          color: white;
+        &.active {
+          color: $theme-primary !important;
+          background-color: transparent;
+          &:hover {
+            background-color: transparent;
+          }
         }
       }
     }
   }
-  .navbar-toggler {
-    font-size: 14px;
-    padding: 11px;
-    text-transform: uppercase;
-    color: white;
-    border-color: white;
-    &:focus,
-    &:hover {
-      color: white;
-      border-color: $theme-success;
-      background-color: $theme-success;
-    }
-  }
-}
-@media(min-width:992px) {
-  #mainNav {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-    -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
-    transition: padding-top 0.3s, padding-bottom 0.3s;
+  @media (min-width: 992px) {
+    border-color: fade-out(white, .7);
+    background-color: transparent;
     .navbar-brand {
-      font-size: 2em;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s;
-    }
-    .navbar-nav > li.nav-item > a.nav-link.active {
-      color: white;
-      border-radius: 3px;
-      background: $theme-success;
-      &:active,
+      color: fade-out(white, .3);
       &:focus,
       &:hover {
         color: white;
-        background: $theme-success;
       }
     }
-  }
-  #mainNav.navbar-shrink {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    .navbar-brand {
-      font-size: 1.5em;
+    .navbar-nav > li.nav-item > a.nav-link,
+    .navbar-nav > li.nav-item > a.nav-link:focus {
+      color: fade-out(white, .3);
+      &:hover {
+        color: white;
+      }
+    }
+    &.navbar-shrink {
+      border-color: fade-out($gray-darker, .95);
+      background-color: white;
+      .navbar-brand {
+        font-size: 16px;
+        color: $theme-primary;
+        &:focus,
+        &:hover {
+          color: darken($theme-primary, .1);
+        }
+      }
+      .navbar-nav > li.nav-item > a.nav-link,
+      .navbar-nav > li.nav-item > a.nav-link:focus {
+        color: $gray-darker;
+        &:hover {
+          color: $theme-primary;
+        }
+      }
     }
   }
 }
