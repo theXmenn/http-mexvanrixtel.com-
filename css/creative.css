@@ -217,7 +217,7 @@ header.masthead {
     text-align: center;
     opacity: 0;
     color: white;
-    background: rgba(240, 95, 64, 0.9);
+    background: #2980B9;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s; }
